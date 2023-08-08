@@ -28,13 +28,13 @@ def download_files_archive() -> None:
 
 def unzip_ds_archive()-> None:
     """Unzips W.D.I. Archive.zip. """
-    
+
     with zipfile.ZipFile(os.path.join(dataset_path, "W.D.I. Archive.zip"), 'r') as zip_ref:
         zip_ref.extractall(dataset_path)
 
 def main():
     create_dataset_folder()
-    #download_files_archive()
+    download_files_archive()
     unzip_ds_archive()
 
 if __name__ == "__main__":
