@@ -1,8 +1,7 @@
 import requests
 import os
 import zipfile
-
-
+ 
 def create_dataset_folder() -> None:
     """Creates the folder to store the World Development Indicators Dataset."""
 
