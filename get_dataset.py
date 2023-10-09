@@ -5,7 +5,7 @@ import zipfile
 def create_dataset_folder() -> None:
     """Creates the folder to store the World Development Indicators Dataset."""
 
-    parent_dir = r"C:\Users\DSL\Documents\python\W.D.I. Analysis"
+    parent_dir = r"C:\Users\pc\Documents\Python\W.D.I.-Analysis\Complementary datasets"
     global dataset_path
     dataset_path = os.path.join(parent_dir, "W.D.I. Dataset")
 
@@ -25,16 +25,17 @@ def download_files_archive() -> None:
         for chunk in response.iter_content(chunk_size= 10 * 1024 * 1024): # To avoid RAM issues
             file.write(chunk)
 
-def unzip_ds_archive()-> None:
-    """Unzips W.D.I. Archive.zip. """
-
-    with zipfile.ZipFile(os.path.join(dataset_path, "W.D.I. Archive.zip"), 'r') as zip_ref:
+def unzip_archives()-> None:
+    """Unzips archives."""
+    dataset_path = r"C:\Users\pc\Documents\Python\W.D.I.-Analysis\Complementary datasets"
+    file_name = "archive.zip"
+    with zipfile.ZipFile(os.path.join(dataset_path, file_name), 'r') as zip_ref:
         zip_ref.extractall(dataset_path)
 
 def main():
     create_dataset_folder()
     download_files_archive()
-    unzip_ds_archive()
+    unzip_archives()
 
 if __name__ == "__main__":
     main()
